@@ -20,8 +20,13 @@ object Application {
     val shape = "parallelogram"
     val areaResult = operationObject.area(shape,num1,num2)
     print(s"Area $areaResult \n")
-
-    print(s"Doubling the list element  ${operationObject.doublingListElement(list1)} \n")
+    val resultList = operationObject.doublingListElement(list1)
+    if( resultList!= List()) {
+         print(s"Doubling the list element  ${resultList} \n")
+    }
+    else {
+      print(s"Can not calculate it \n")
+    }
     print(s"Number of Element  ${operationObject.numberOfElement(list1)} \n")
     print(s"kTH Element  ${operationObject.kthElement(list1,num2)} \n")
 

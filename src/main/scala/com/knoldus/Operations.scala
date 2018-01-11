@@ -7,7 +7,7 @@ class Operations {
 
   def addingTwoList(list1: List[Int], list2: List[Int]): List[Int] = {
     if (list1.length == list2.length) {
-      val resultList = for (i <- 0 to list1.length - 1) yield list1(i) + list2(i)
+      val resultList = for (i <- 0 until list1.length) yield list1(i) + list2(i)
       resultList.to[List]
     }
     else {
@@ -43,7 +43,7 @@ def numberOfElement(list: List[Int]): Int = {
   counter(list,count)
 }
   def kthElement(list: List[Int], position: Int): Int = {
-    if(position < list.length) {
+    if(position < list.length && list != Nil) {
       list match {
         case head :: tail if position > 0 => kthElement(tail, position - 1)
         case head :: tail if (position == 0) => head
@@ -55,8 +55,13 @@ def numberOfElement(list: List[Int]): Int = {
   }
 
   def reverse(list: List[Int]): List[Int] = {
-    val resultList = for(i <- list.length-1 to 0 by -1) yield list(i)
-    resultList.to[List]
+    if(list != Nil) {
+      val resultList = for (i <- list.length - 1 to 0 by -1) yield list(i)
+      resultList.to[List]
+    }
+    else {
+      List()
+    }
   }
   def fibonacci( num : Int) : List[Int] = {
     def fib(num: Int): Int = {
@@ -69,6 +74,30 @@ def numberOfElement(list: List[Int]): Int = {
 
   val result =  for (i <- 0 until num) yield  { fib(i) }
   result.to[List]
+  }
+
+  def addingTwoLists(list1: List[Int], list2: List[Int]): List[Int] = {
+    val length1 = list1.length
+    val length2 = list2.length
+    val index=0
+    def adding(list:List[Int],index: Int): List[Int] = {
+      list match {
+        case head::tail if index < length2 => val num = head + list2(index);print(num); adding(num::tail,index + 1)
+        case head::tail if index >= length2 => list
+      }
+    }
+    if (length1 == length2) {
+      val resultList = for (i <- 0 to list1.length - 1) yield list1(i) + list2(i)
+      resultList.to[List]
+    }
+    else if (length1 > length2){
+    adding(list1,index)
+    }
+    else {
+      adding(list2,index)
+    }
+
+
   }
 }
 

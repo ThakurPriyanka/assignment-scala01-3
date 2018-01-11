@@ -33,5 +33,7 @@ object Application {
     print(s"Reverse List  ${operationObject.reverse(list1)} \n")
 
     print(s"Fibonacci  ${operationObject.fibonacci(num3)} \n")
+    val lis = List(num1,num2,num3,num4)
+    print(s"Sum of two list ${operationObject.addingTwoLists(list1,lis)} \n")
   }
 }

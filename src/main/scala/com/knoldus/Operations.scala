@@ -16,6 +16,10 @@ class Operations {
       val resultList = for (i <- 0 until list2Length) yield list1(i) + list2(i)
       resultList.to[List]:::list1.drop(list2Length)
     }
+    else if (list1Length == list2Length) {
+      val resultList = for (i <- 0 until list2Length) yield list1(i) + list2(i)
+      resultList.to[List]
+    }
     else {
       List()
     }

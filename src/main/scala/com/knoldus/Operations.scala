@@ -6,9 +6,15 @@ class Operations {
   }
 
   def addingTwoList(list1: List[Int], list2: List[Int]): List[Int] = {
-    if (list1.length == list2.length) {
-      val resultList = for (i <- 0 until list1.length) yield list1(i) + list2(i)
-      resultList.to[List]
+    val list1Length = list1.length
+    val list2Length = list2.length
+    if (list1Length < list2Length) {
+      val resultList = for (i <- 0 until list1Length) yield list1(i) + list2(i)
+      resultList.to[List]:::list1.drop(list2Length)
+    }
+    else if (list1Length > list2Length) {
+      val resultList = for (i <- 0 until list2Length) yield list1(i) + list2(i)
+      resultList.to[List]:::list1.drop(list2Length)
     }
     else {
       List()

@@ -34,6 +34,6 @@ object Application {
 
     print(s"Fibonacci  ${operationObject.fibonacci(num3)} \n")
     val lis = List(num1,num2,num3,num4)
-    print(s"Sum of two list ${operationObject.addingTwoLists(list1,lis)} \n")
+    print(s"Sum of two list ${operationObject.addingTwoList(list1,lis)} \n")
   }
 }
